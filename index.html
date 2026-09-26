@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mohammed Abbakar | Data analyst</title>
+  <meta name="description" content="Mohammed Abbakar, data analyst at Generali France. Power BI dashboards, SQL and Python analytics." />
+  <script>
+    /* Apply the saved or system theme before paint to avoid a flash */
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('ma3-theme'); } catch (e) {}
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300..700&family=Oswald:wght@300;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Side navigation (vertical on desktop, bottom bar on mobile) -->
+  <nav class="rail" aria-label="Sections">
+    <span class="rail-pill" aria-hidden="true"></span>
+    <a href="#hello"   class="is-active" data-fr="Bonjour">Hello</a>
+    <a href="#work"    data-fr="Projets">Work</a>
+    <a href="#process" data-fr="Méthode">Process</a>
+    <a href="#stories" data-fr="Parcours">About me</a>
+    <a href="#contact" data-fr="Contact">Contact</a>
+  </nav>
+
+  <button type="button" class="lang" id="langBtn" aria-label="Passer en français">FR</button>
+
+  <main>
+
+    <!-- ============ HELLO (bento) ============ -->
+    <section class="band band-page" id="hello">
+      <div class="wrap bento">
+
+        <article class="tile tile-hero">
+          <div class="hero-top">
+            <img class="avatar" src="img/IMG_4257.jpg" alt="Mohammed Abbakar" width="64" height="64" />
+            <p class="status"><span class="dot" aria-hidden="true"></span><span data-fr="En alternance chez Generali">In work-study at Generali</span></p>
+          </div>
+
+          <h1 class="hero-title">
+            <span data-fr="Bonjour, je m'appelle Mohammed, et je suis">Hello, my name is Mohammed, and I am a</span>
+            <s class="was" data-fr="Développeur front-end">Front-end developer</s><sup class="star">*</sup>
+            <span class="now" data-fr="Data Analyst">Data Analyst</span>
+          </h1>
+
+          <div class="hero-meta">
+            <p data-fr="Basé à Vanves, France<br>Actuellement chez <a href='https://www.generali.fr' target='_blank' rel='noopener'>Generali France</a>">Based in Vanves, France<br>Currently working for <a href="https://www.generali.fr" target="_blank" rel="noopener">Generali France</a></p>
+            <p class="footnote" data-fr="* J'ai étudié la physique, j'ai construit des sites web, puis j'ai trouvé la data.">* I studied physics, built websites, then found data.</p>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-solid" data-fr="Contact">Contact</a>
+            <a href="#work" class="btn btn-ghost" data-fr="Projets">Projects</a>
+            <span class="socials">
+              <a href="https://www.linkedin.com/in/mohammed-abbakar-0b7905202/" target="_blank" rel="noopener" class="round" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+              </a>
+              <a href="https://github.com/MohammedABBAKAR" target="_blank" rel="noopener" class="round" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23.96-.27 1.98-.4 3-.41 1.02.01 2.04.14 3 .41 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58C20.56 21.8 24 17.31 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+            </span>
+          </div>
+        </article>
+
+        <button type="button" class="tile tile-theme" id="themeTile" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">
+            <svg class="i-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+            <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+          </span>
+          <span class="theme-text"></span>
+        </button>
+
+        <a href="#work" class="tile tile-link tile-works">
+          <span class="tile-h" data-fr="Projets">Works</span>
+          <span class="tile-p" data-fr="Un aperçu de quelques <u>projets</u> choisis.">Have a glimpse on selected <u>works</u> of mine.</span>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+        </a>
+
+        <a href="#stories" class="tile tile-link tile-about stage">
+          <span class="stage-beam" aria-hidden="true"></span>
+          <span class="stage-lamp" aria-hidden="true"></span>
+          <span class="stage-floor" aria-hidden="true"></span>
+          <img class="stage-photo" src="img/about-stage.webp" alt="Mohammed Abbakar in a white jalabiya" width="620" height="970" />
+          <span class="stage-glow" aria-hidden="true"></span>
+          <span class="tile-h" data-fr="À propos">About me</span>
+          <span class="tile-p" data-fr="Un aperçu de mon <u>parcours</u>.">Have a glimpse on selected <u>stories</u> of mine.</span>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="band band-alt" id="work">
+      <div class="wrap">
+        <h2 class="h2" data-reveal data-fr="Un aperçu de quelques<br><span class='scribble'>projets</span> choisis.">Have a glimpse on<br>selected <span class="scribble">works</span> of mine.</h2>
+
+        <div class="cards">
+          <article class="card" data-reveal>
+            <div class="card-reveal" aria-hidden="true"><img src="img/pharma.jpg" alt="" loading="lazy" /></div>
+            <button type="button" class="card-thumb" data-img="img/pharma.jpg" data-url="https://app.powerbi.com/view?r=eyJrIjoiMmQxYjFhNjItNGQ0Mi00ZmU0LWE3ZDItNWZmMjk0ZGJiYTg0IiwidCI6IjQ2NTRiNmYxLTBlNDctNDU3OS1hOGExLTAyZmU5ZDk0M2M3YiIsImMiOjl9" aria-label="Preview">
+              <img src="img/pharma.jpg" alt="" loading="lazy" />
+              <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span>
+            </button>
+            <h3><a class="card-link" href="https://app.powerbi.com/view?r=eyJrIjoiMmQxYjFhNjItNGQ0Mi00ZmU0LWE3ZDItNWZmMjk0ZGJiYTg0IiwidCI6IjQ2NTRiNmYxLTBlNDctNDU3OS1hOGExLTAyZmU5ZDk0M2M3YiIsImMiOjl9" target="_blank" rel="noopener" data-fr="Rentabilité des ventes pharma, rapport en ligne.">Pharma sales profitability, live report.</a></h3>
+            <p data-fr="Rapport Power BI publié : chiffre d'affaires, unités et marge par produit et par pays.">Published Power BI report: revenue, units and margin by product and country.</p>
+            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card-reveal" aria-hidden="true"><img src="img/smart-logistics.jpg" alt="" loading="lazy" /></div>
+            <button type="button" class="card-thumb" data-img="img/smart-logistics.jpg" data-url="https://github.com/MohammedABBAKAR/Smart-Logistics-Dashboard-Analyse-des-retards-logistiques" aria-label="Preview">
+              <img src="img/smart-logistics.jpg" alt="" loading="lazy" />
+              <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span>
+            </button>
+            <h3><a class="card-link" href="https://github.com/MohammedABBAKAR/Smart-Logistics-Dashboard-Analyse-des-retards-logistiques" target="_blank" rel="noopener" data-fr="Smart Logistics : pourquoi les livraisons sont en retard.">Smart Logistics: why deliveries run late.</a></h3>
+            <p data-fr="Dashboard Power BI des retards par cause, trafic et mois.">Power BI dashboard of delays by cause, traffic condition and month.</p>
+            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card-reveal" aria-hidden="true"><img src="img/retail.jpg" alt="" loading="lazy" /></div>
+            <button type="button" class="card-thumb" data-img="img/retail.jpg" data-url="https://github.com/MohammedABBAKAR/Retail-Sales-Supply-Chain-Descriptive-Analysis" aria-label="Preview">
+              <img src="img/retail.jpg" alt="" loading="lazy" />
+              <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span>
+            </button>
+            <h3><a class="card-link" href="https://github.com/MohammedABBAKAR/Retail-Sales-Supply-Chain-Descriptive-Analysis" target="_blank" rel="noopener" data-fr="Ventes retail et supply chain.">Retail sales and supply chain.</a></h3>
+            <p data-fr="Analyse descriptive des ventes, retours et profits avec des KPI cumulés sur l'année.">Descriptive analysis of sales, returns and profit with year-to-date KPIs.</p>
+            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card-reveal" aria-hidden="true"><img src="img/sales-performance.jpg" alt="" loading="lazy" /></div>
+            <button type="button" class="card-thumb" data-img="img/sales-performance.jpg" data-url="https://github.com/MohammedABBAKAR/Sales-Performance-Dashboard-Power-BI" aria-label="Preview">
+              <img src="img/sales-performance.jpg" alt="" loading="lazy" />
+              <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span>
+            </button>
+            <h3><a class="card-link" href="https://github.com/MohammedABBAKAR/Sales-Performance-Dashboard-Power-BI" target="_blank" rel="noopener" data-fr="Tableau de bord de performance commerciale.">Sales performance dashboard.</a></h3>
+            <p data-fr="Quantités, commandes et profit par catégorie et par mois dans Power BI.">Quantity, orders and profit by category and month in Power BI.</p>
+            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card-reveal" aria-hidden="true"><img src="img/public-health.jpg" alt="" loading="lazy" /></div>
+            <button type="button" class="card-thumb" data-img="img/public-health.jpg" data-url="https://github.com/MohammedABBAKAR/R-alisez-une-tude-de-sant-publique-avec-Python" aria-label="Preview">
+              <img src="img/public-health.jpg" alt="" loading="lazy" />
+              <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span>
+            </button>
+            <h3><a class="card-link" href="https://github.com/MohammedABBAKAR/R-alisez-une-tude-de-sant-publique-avec-Python" target="_blank" rel="noopener" data-fr="Santé publique avec les données FAO.">Public health with FAO data.</a></h3>
+            <p data-fr="Étude Python de la sous-nutrition et de la disponibilité alimentaire.">Python study of undernutrition and food availability across countries.</p>
+            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card-reveal" aria-hidden="true"><img src="img/wine-shop.jpg" alt="" loading="lazy" /></div>
+            <button type="button" class="card-thumb" data-img="img/wine-shop.jpg" data-url="https://github.com/MohammedABBAKAR/Optimisez-la-gestion-des-donn-es-d-une-boutique-avec-Python" aria-label="Preview">
+              <img src="img/wine-shop.jpg" alt="" loading="lazy" />
+              <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span>
+            </button>
+            <h3><a class="card-link" href="https://github.com/MohammedABBAKAR/Optimisez-la-gestion-des-donn-es-d-une-boutique-avec-Python" target="_blank" rel="noopener" data-fr="Les données d'une boutique de vin.">A wine shop's data, cleaned up.</a></h3>
+            <p data-fr="Rapprochement des ventes et du stock avec Pandas.">Reconciling sales and stock data with Pandas.</p>
+            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS: from raw data to a decision ============ -->
+    <section class="band band-page" id="process">
+      <div class="wrap">
+        <h2 class="h2" data-reveal data-fr="Un aperçu de ma<br>façon de <span class='scribble'>penser</span>.">Have a glimpse on<br>how I <span class="scribble">think</span>.</h2>
+
+        <div class="process" data-reveal>
+          <div class="stepper" role="tablist" aria-label="Analysis steps">
+          <button type="button" class="step" role="tab" id="step-1" aria-controls="panel-1" aria-selected="true" tabindex="0">
+            <span class="step-node" aria-hidden="true"><span class="step-num">1</span><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            <span class="step-name" data-fr="Question">Ask</span>
+          </button>
+          <button type="button" class="step" role="tab" id="step-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">
+            <span class="step-node" aria-hidden="true"><span class="step-num">2</span><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            <span class="step-name" data-fr="Collecte">Collect</span>
+          </button>
+          <button type="button" class="step" role="tab" id="step-3" aria-controls="panel-3" aria-selected="false" tabindex="-1">
+            <span class="step-node" aria-hidden="true"><span class="step-num">3</span><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            <span class="step-name" data-fr="Nettoyage">Clean</span>
+          </button>
+          <button type="button" class="step" role="tab" id="step-4" aria-controls="panel-4" aria-selected="false" tabindex="-1">
+            <span class="step-node" aria-hidden="true"><span class="step-num">4</span><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            <span class="step-name" data-fr="Analyse">Analyze</span>
+          </button>
+          <button type="button" class="step" role="tab" id="step-5" aria-controls="panel-5" aria-selected="false" tabindex="-1">
+            <span class="step-node" aria-hidden="true"><span class="step-num">5</span><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            <span class="step-name" data-fr="Décision">Recommend</span>
+          </button>
+          </div>
+
+          <div class="process-body">
+            <div class="process-text">
+            <div class="step-panel" role="tabpanel" id="panel-1" aria-labelledby="step-1">
+              <p class="step-count">1 / 5</p>
+              <h3 data-fr="Poser la bonne question">Ask the right question</h3>
+              <p class="step-desc" data-fr="Avant de toucher aux données, je clarifie la décision à éclairer : qui lira le résultat, et qu'est-ce qui le ferait changer d'avis.">Before touching any data, I pin down the decision it should support: who will read the result, and what would change their mind.</p>
+              <ul class="step-tools" data-fr="<li>Définition des KPI</li><li>Parties prenantes</li>"><li>KPI definition</li><li>Stakeholders</li></ul>
+              <p class="step-rule"><span data-fr="Ma règle :">My rule:</span> <span data-fr="Si je ne peux pas écrire la question en une phrase, je ne suis pas prêt à requêter.">If I can't write the question in one sentence, I'm not ready to query.</span></p>
+            </div>
+            <div class="step-panel" role="tabpanel" id="panel-2" aria-labelledby="step-2" hidden>
+              <p class="step-count">2 / 5</p>
+              <h3 data-fr="Collecter l'essentiel">Collect only what matters</h3>
+              <p class="step-desc" data-fr="Je n'extrais que ce dont la question a besoin, directement à la source en SQL, et je note l'origine de chaque colonne.">I pull only what the question needs, straight from the source with SQL, and note where every column comes from.</p>
+              <ul class="step-tools" data-fr="<li>SQL</li><li>Snowflake</li><li>Exports</li>"><li>SQL</li><li>Snowflake</li><li>Exports</li></ul>
+              <p class="step-rule"><span data-fr="Ma règle :">My rule:</span> <span data-fr="Compter les lignes à chaque étape, pour que rien ne disparaisse en silence.">Count rows at every step, so nothing disappears silently.</span></p>
+            </div>
+            <div class="step-panel" role="tabpanel" id="panel-3" aria-labelledby="step-3" hidden>
+              <p class="step-count">3 / 5</p>
+              <h3 data-fr="Nettoyer et modéliser">Clean and model</h3>
+              <p class="step-desc" data-fr="L'essentiel du travail est ici : doublons, fautes, formats de date, valeurs manquantes. Puis je structure les tables en un modèle propre.">Most of the work lives here: duplicates, typos, date formats, missing values. Then I shape the tables into a clean model.</p>
+              <ul class="step-tools" data-fr="<li>Power Query</li><li>Pandas</li><li>dbt</li>"><li>Power Query</li><li>Pandas</li><li>dbt</li></ul>
+              <p class="step-rule"><span data-fr="Ma règle :">My rule:</span> <span data-fr="Chaque correction est écrite en code, jamais à la main dans une cellule.">Every fix is written in code, never by hand in a cell.</span></p>
+            </div>
+            <div class="step-panel" role="tabpanel" id="panel-4" aria-labelledby="step-4" hidden>
+              <p class="step-count">4 / 5</p>
+              <h3 data-fr="Analyser et visualiser">Analyze and visualize</h3>
+              <p class="step-desc" data-fr="Je cherche le motif qui répond à la question, puis je choisis le graphique le plus simple pour le montrer.">I look for the pattern that answers the question, then choose the simplest chart that shows it.</p>
+              <ul class="step-tools" data-fr="<li>DAX</li><li>Python</li><li>Power BI</li>"><li>DAX</li><li>Python</li><li>Power BI</li></ul>
+              <p class="step-rule"><span data-fr="Ma règle :">My rule:</span> <span data-fr="Une page, une question.">One page, one question.</span></p>
+            </div>
+            <div class="step-panel" role="tabpanel" id="panel-5" aria-labelledby="step-5" hidden>
+              <p class="step-count">5 / 5</p>
+              <h3 data-fr="En faire une décision">Turn it into a decision</h3>
+              <p class="step-desc" data-fr="Le résultat est une décision, pas un dashboard : le constat, mon niveau de certitude, et la prochaine action.">The result is a decision, not a dashboard: the finding, how sure I am, and what to do next.</p>
+              <ul class="step-tools" data-fr="<li>Storytelling</li><li>Rapport Power BI</li>"><li>Storytelling</li><li>Power BI report</li></ul>
+              <p class="step-rule"><span data-fr="Ma règle :">My rule:</span> <span data-fr="Commencer par la réponse, puis montrer les preuves.">Lead with the answer, then show the evidence.</span></p>
+            </div>
+            </div>
+
+            <figure class="specimen" aria-hidden="true">
+              <div class="spec-bar">
+                <span class="spec-dots"><i></i><i></i><i></i></span>
+                <span class="spec-file" id="specFile">brief.md</span>
+              </div>
+              <div class="spec-body" id="specBody"></div>
+              <figcaption class="spec-caption" data-fr="Illustration tirée de mon projet Smart Logistics">Illustration from my Smart Logistics project</figcaption>
+            </figure>
+          </div>
+
+          <div class="process-foot">
+            <button type="button" class="p-btn" id="procPrev" aria-label="Previous step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+            <button type="button" class="p-btn p-play" id="procPlay" aria-label="Pause">
+              <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+              <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+              <svg class="i-replay" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+            </button>
+            <button type="button" class="p-btn" id="procNext" aria-label="Next step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+            <span class="p-hint" data-fr="Cliquez sur une étape, ou laissez défiler.">Click a step, or let it play.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STORIES ============ -->
+    <section class="band band-alt" id="stories">
+      <div class="wrap stories">
+        <div class="stories-intro">
+          <h2 class="h2" data-reveal data-fr="Un aperçu de<br>mon <span class='scribble'>parcours</span>.">Have a glimpse on<br>selected <span class="scribble">stories</span><br>of mine.</h2>
+          <p class="lead" data-reveal data-fr="Des statistiques de la physique aux tableaux de bord Power BI : voici comment je suis arrivé à la data, et ce que j'y fais aujourd'hui.">From physics statistics to Power BI dashboards: how I ended up in data, and what I do with it today.</p>
+          <ul class="chips" data-reveal aria-label="Toolkit">
+            <li>SQL</li><li>Python</li><li>Power BI</li><li>DAX</li><li>dbt</li><li>Snowflake</li><li>Tableau</li>
+          </ul>
+        </div>
+
+        <div class="story-grid">
+          <article class="story" data-reveal>
+            <p class="story-year">2017</p>
+            <h3 data-fr="Physique et mathématiques">Physics and mathematics</h3>
+            <p data-fr="Une licence à la Sudan University of Science and Technology m'a donné les maths et les statistiques que j'utilise chaque jour.">A B.Sc. at Sudan University of Science and Technology gave me the maths and statistics I use every day.</p>
+          </article>
+          <article class="story" data-reveal>
+            <p class="story-year">2023</p>
+            <h3 data-fr="Construire pour le web">Building for the web</h3>
+            <p data-fr="Formation web et mobile chez Simplon, puis un stage front-end chez Grafisk en React.">Web and mobile training at Simplon, then a front-end internship at Grafisk with React.</p>
+          </article>
+          <article class="story" data-reveal>
+            <p class="story-year">2024 – 2026</p>
+            <h3 data-fr="Data analyst chez Generali">Data analyst at Generali</h3>
+            <p data-fr="Suivi quotidien de la production en SQL et dashboards Power BI utilisés par l'équipe et le management.">Daily production monitoring in SQL and Power BI dashboards used by the team and management.</p>
+          </article>
+          <article class="story story-now" data-reveal>
+            <p class="story-year"><span class="dot" aria-hidden="true"></span>2026 – 2028</p>
+            <h3 data-fr="Master Data et IA">Master's in Data &amp; AI</h3>
+            <p data-fr="À Nexa Digital School, en alternance chez Generali comme gestionnaire de données.">At Nexa Digital School, in work-study at Generali as Gestionnaire de données.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT (business card) ============ -->
+    <section class="band band-page" id="contact">
+      <div class="wrap">
+        <h2 class="h2" data-reveal data-fr="Parlons de vos<br><span class='scribble'>données</span>.">Let's talk about<br>your <span class="scribble">data</span>.</h2>
+
+        <article class="biz" data-reveal>
+          <span class="biz-disc" aria-hidden="true"></span>
+          <div class="biz-photo">
+            <img src="img/portrait-cutout.png" alt="Mohammed Abbakar" loading="lazy" />
+          </div>
+
+          <div class="biz-name">
+            <span class="biz-first">Mohammed</span>
+            <span class="biz-rule" aria-hidden="true"></span>
+            <span class="biz-last">Abbakar</span>
+            <span class="biz-role">Data analyst</span>
+          </div>
+
+          <ul class="biz-lines">
+            <li>
+              <span class="biz-key" aria-hidden="true">P</span>
+              <a href="tel:+33766144745">+33 7 66 14 47 45</a>
+            </li>
+            <li>
+              <span class="biz-key" aria-hidden="true">E</span>
+              <a href="mailto:mabbakar77@gmail.com">mabbakar77@gmail.com</a>
+              <button type="button" class="copy" id="copyMail" data-copy="mabbakar77@gmail.com" aria-label="Copy email address">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="copy-tip" data-fr="Copié">Copied</span>
+              </button>
+            </li>
+            <li>
+              <span class="biz-key" aria-hidden="true">L</span>
+              <span>Vanves, 92170, France</span>
+            </li>
+          </ul>
+        </article>
+
+        <div class="pills" data-reveal>
+          <span class="pill pill-me">
+            <img src="img/avatar.jpg" alt="" />
+            <span>Mohammed Abbakar</span>
+          </span>
+          <a href="https://www.linkedin.com/in/mohammed-abbakar-0b7905202/" target="_blank" rel="noopener" class="pill">
+            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></span>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/MohammedABBAKAR" target="_blank" rel="noopener" class="pill">
+            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23.96-.27 1.98-.4 3-.41 1.02.01 2.04.14 3 .41 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58C20.56 21.8 24 17.31 24 12c0-6.63-5.37-12-12-12z"/></svg></span>
+            <span>GitHub</span>
+          </a>
+          <a href="mailto:mabbakar77@gmail.com" class="pill">
+            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>
+            <span>Email</span>
+          </a>
+          <a href="tel:+33766144745" class="pill">
+            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+            <span data-fr="Téléphone">Phone</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Image preview for project cards -->
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lbTitle">
+    <button type="button" class="lb-close" id="lbClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <img id="lbImg" src="" alt="" />
+    <div class="lb-bar">
+      <p id="lbTitle"></p>
+      <a id="lbLink" class="btn btn-solid" href="#" target="_blank" rel="noopener" data-fr="Ouvrir le projet">Open project</a>
+    </div>
+  </dialog>
+
+  <footer class="foot wrap">
+    <p>© 2026 Mohammed Abbakar</p>
+    <p class="foot-links">
+      <span data-fr="Autres versions :">Other versions:</span>
+      <a href="../index.html" data-fr="classique">classic</a>
+      <a href="../v2/index.html">v2</a>
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
