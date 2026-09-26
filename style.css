@@ -780,12 +780,46 @@ a:hover > .arrow { background: var(--accent); border-color: var(--accent); color
 }
 .stories-intro { position: sticky; top: 2rem; }
 .lead { color: var(--ink-soft); font-size: 1rem; max-width: 26rem; margin-bottom: 1.5rem; }
-.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .chips li {
-  padding: 0.4em 0.9em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.3em 0.95em 0.3em 0.3em;
   border-radius: 100px;
   border: 1px solid var(--line);
-  font-size: 0.82rem;
+  background: var(--card);
+  font-size: 0.84rem;
+  transition: border-color 0.25s, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.4s;
+}
+.chip-ico {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--tile);
+  color: var(--ink);
+  transition: background 0.25s, color 0.25s, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.chip-ico svg { width: 15px; height: 15px; }
+.chips li:hover { border-color: var(--accent); transform: translateY(-2px); }
+.chips li:hover .chip-ico { background: var(--accent); color: #fff; transform: rotate(-12deg) scale(1.08); }
+/* Chips pop in one after another when the list scrolls into view */
+.js .chips[data-reveal] { opacity: 1; transform: none; }
+.js .chips[data-reveal] li { opacity: 0; transform: translateY(10px) scale(0.9); }
+.js .chips[data-reveal].in li { animation: chipIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--i) * 0.06s + 0.2s) forwards; }
+@keyframes chipIn { to { opacity: 1; transform: none; } }
+
+/* Scroll-linked shuffle: cards arrive scattered and settle into the grid.
+   JS sets --sx, --sy, --sr, --ss, --so from the scroll position. */
+#work, #stories { overflow-x: clip; }
+.js .card, .js .story {
+  translate: var(--sx, 0) var(--sy, 0);
+  rotate: var(--sr, 0deg);
+  scale: var(--ss, 1);
+  opacity: var(--so, 1);
+  will-change: translate, rotate;
 }
 .story-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
 .story {
@@ -1098,4 +1132,5 @@ body.switching [data-fr] { opacity: 0; }
   .js .stage-beam, .js .stage-lamp, .js .stage-glow, .js .stage-floor { opacity: 1; }
   .js .stage-photo { filter: brightness(0.92) contrast(1.05); }
   .sp-table tr, .sp-need div, .sp-log span, .sp-card { opacity: 1; }
+  .js .chips[data-reveal] li { opacity: 1; transform: none; }
 }

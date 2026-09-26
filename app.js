@@ -415,4 +415,68 @@
     }, { threshold: 0.35 });
     io.observe(box);
   })();
+
+  // ---------- Scroll-linked shuffle for project and story cards ----------
+  (function setupShuffle() {
+    if (reduceMotion) return;
+    const groups = [
+      Array.from(document.querySelectorAll('.cards .card')),
+      Array.from(document.querySelectorAll('.story-grid .story'))
+    ].filter(g => g.length);
+    if (!groups.length) return;
+
+    // Stable pseudo-random numbers so every visit shuffles the same way
+    const rnd = n => { const x = Math.sin(n * 91.7 + 13.3) * 43758.5453; return x - Math.floor(x); };
+    const ease = t => 1 - Math.pow(1 - t, 3);
+    let items = [];
+
+    function measure() {
+      items = [];
+      groups.forEach((cards, g) => {
+        const parent = cards[0].parentElement;
+        const cols = getComputedStyle(parent).gridTemplateColumns.split(' ').length;
+        const small = innerWidth < 700;
+        cards.forEach((el, i) => {
+          const col = i % cols;
+          const mid = (cols - 1) / 2;
+          const seed = g * 10 + i;
+          const spread = small ? 36 : 120;
+          items.push({
+            el, col,
+            dx: (col - mid) * spread + (rnd(seed) - 0.5) * (small ? 50 : 90),
+            dy: 70 + rnd(seed + 3) * (small ? 60 : 120),
+            dr: (rnd(seed + 7) - 0.5) * (small ? 14 : 22)
+          });
+        });
+      });
+      update();
+    }
+
+    let ticking = false;
+    function update() {
+      ticking = false;
+      const vh = innerHeight;
+      items.forEach(it => {
+        const top = it.el.getBoundingClientRect().top;
+        const start = vh * 1.02;                  // card just below the screen: fully scattered
+        const end = vh * (0.62 - it.col * 0.05);  // card well inside: in place (later columns settle a bit later)
+        const p = Math.min(1, Math.max(0, (start - top) / (start - end)));
+        const k = 1 - ease(p);
+        const s = it.el.style;
+        if (k < 0.001) {
+          s.removeProperty('--sx'); s.removeProperty('--sy'); s.removeProperty('--sr');
+          s.removeProperty('--ss'); s.removeProperty('--so');
+          return;
+        }
+        s.setProperty('--sx', (it.dx * k).toFixed(1) + 'px');
+        s.setProperty('--sy', (it.dy * k).toFixed(1) + 'px');
+        s.setProperty('--sr', (it.dr * k).toFixed(2) + 'deg');
+        s.setProperty('--ss', (1 - 0.08 * k).toFixed(3));
+        s.setProperty('--so', (1 - 0.55 * k).toFixed(3));
+      });
+    }
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    window.addEventListener('resize', measure);
+    measure();
+  })();
 })();
