@@ -363,6 +363,163 @@ a:hover > .arrow { background: var(--accent); border-color: var(--accent); color
 .bento > .tile:nth-child(4) { animation-delay: 0.24s; }
 @keyframes tileIn { from { opacity: 0; transform: translateY(16px) scale(0.985); } }
 
+/* ---------- Key numbers strip ---------- */
+.stats {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.6rem;
+  border-radius: 26px;
+  background: var(--invert-bg);
+  color: var(--invert-ink);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+.stat {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  transition: flex-grow 0.6s cubic-bezier(0.22, 1, 0.36, 1), background 0.35s, opacity 0.35s;
+}
+.stat-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  width: 100%;
+  padding: 1.3rem 1.4rem 0.6rem;
+  color: inherit;
+  border-radius: 20px;
+}
+.stat-num {
+  display: flex;
+  align-items: flex-start;
+  font-size: clamp(2.8rem, 5vw, 4.4rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.plus { font-size: 0.55em; margin-left: 0.05em; margin-top: 0.12em; display: inline-block; }
+.js .stats:not(.in) .plus { opacity: 0; transform: scale(0.3); }
+.js .stats.in .plus { transition: opacity 0.3s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); transition-delay: calc(var(--n) * 0.12s + 1.1s); }
+.stat-label {
+  padding-top: 0.45rem;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: color-mix(in srgb, var(--invert-ink) 70%, transparent);
+  transition: color 0.3s;
+}
+.stat-chev {
+  display: none;
+  margin-left: auto;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Detail area: hidden until the stat is hovered, focused or opened */
+.stat-more {
+  padding: 0.4rem 1.4rem 1.3rem;
+  margin-top: auto;
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+}
+/* At rest the visuals sit faded as a teaser; the text appears when opened */
+.stat-more p { font-size: 0.86rem; line-height: 1.5; color: color-mix(in srgb, var(--invert-ink) 75%, transparent); max-width: 22rem; opacity: 0; transform: translateY(6px); transition: opacity 0.3s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.stat-more .stat-link { opacity: 0; transition: opacity 0.3s; }
+.stat.is-open .stat-more p, .stat.is-open .stat-more .stat-link { opacity: 1; transform: none; transition-delay: 0.15s; }
+
+.stat.is-open { flex-grow: 1.9; background: color-mix(in srgb, var(--invert-ink) 7%, transparent); }
+.stat.is-open .stat-label { color: var(--invert-ink); }
+.stat.is-open .stat-more { opacity: 1; }
+.stats.has-open .stat:not(.is-open) { opacity: 0.5; }
+.stats-hint {
+  position: absolute;
+  right: 1.4rem;
+  bottom: 1rem;
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--invert-ink) 50%, transparent);
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.stats.has-open .stats-hint { opacity: 0; }
+
+/* Years: a small timeline with a "now" marker */
+.yr-track { position: relative; height: 4px; margin: 0.6rem 0 2.3rem; border-radius: 4px; background: color-mix(in srgb, var(--invert-ink) 18%, transparent); }
+.yr-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 4px; background: var(--accent); transition: width 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s; }
+.stat.is-open .yr-fill { width: 69%; }
+.yr-now { position: absolute; top: 50%; left: 0; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 30%, transparent); transition: left 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s; }
+.stat.is-open .yr-now { left: 69%; animation: nowPulse 1.8s ease-in-out 1.2s infinite; }
+@keyframes nowPulse { 50% { box-shadow: 0 0 0 9px color-mix(in srgb, var(--accent) 12%, transparent); } }
+.stat:not(.is-open) .yr-now b { opacity: 0; }
+.yr-now b { transition: opacity 0.3s 0.9s; position: absolute; bottom: 150%; left: 50%; transform: translateX(-50%); font-size: 0.7rem; font-weight: 600; color: var(--accent); white-space: nowrap; }
+.yr-tick { position: absolute; top: 12px; left: var(--x); transform: translateX(-50%); font-size: 0.72rem; color: color-mix(in srgb, var(--invert-ink) 55%, transparent); }
+.yr-tick:nth-child(3) { transform: none; }
+.yr-tick:nth-child(5) { transform: translateX(-100%); }
+
+/* Dashboards: bars that grow one after another */
+.mini-bars { display: flex; align-items: flex-end; gap: 5px; height: 62px; margin-bottom: 0.9rem; }
+.mini-bars i { flex: 1; height: var(--h); border-radius: 4px 4px 2px 2px; background: color-mix(in srgb, var(--invert-ink) 22%, transparent); transform: scaleY(0.3); transform-origin: bottom; transition: transform 0.6s cubic-bezier(0.34, 1.4, 0.64, 1); }
+.mini-bars i:nth-child(8) { background: var(--accent); }
+.stat.is-open .mini-bars i { transform: scaleY(1); transition-delay: calc(var(--k) * 0.05s + 0.15s); }
+
+/* Projects: a hand of cards that fans out */
+.fan { position: relative; height: 74px; margin: 0.2rem 0 1rem; }
+.fan img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 92px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid var(--invert-bg);
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.5);
+  transform-origin: 50% 120%;
+  transform: translateX(0) rotate(0);
+  transition: transform 0.7s cubic-bezier(0.34, 1.3, 0.64, 1), border-color 0.4s;
+}
+.stat.is-open .fan img {
+  transform: translateX(calc(var(--k) * 38px)) rotate(calc((var(--k) - 2.5) * 5deg));
+  transition-delay: calc(var(--k) * 0.04s + 0.1s);
+}
+.stat-link { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.86rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+.stat-link svg { width: 15px; height: 15px; transition: transform 0.3s; }
+.stat-link:hover svg { transform: translateY(3px); }
+
+/* Languages: greetings popping in */
+.hellos { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.9rem; }
+.hellos span {
+  padding: 0.35em 0.85em;
+  border-radius: 100px;
+  border: 1px solid color-mix(in srgb, var(--invert-ink) 25%, transparent);
+  font-size: 0.9rem;
+  opacity: 0.6;
+  transition: opacity 0.3s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.stat.is-open .hellos span { opacity: 1; animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.stat.is-open .hellos span:nth-child(2) { animation-delay: 0.12s; }
+.stat.is-open .hellos span:nth-child(3) { animation-delay: 0.24s; }
+
+@media (max-width: 860px) {
+  .stats { flex-direction: column; gap: 0.25rem; }
+  .stat { flex: none; min-height: 0; }
+  .stat-top { align-items: center; padding: 1rem 1.1rem; }
+  .stat-num { font-size: 2.8rem; min-width: 4.6rem; }
+  .stat-label { padding-top: 0; }
+  .stat-label br { display: none; }
+  .stat-chev { display: block; }
+  .stat.is-open .stat-chev { transform: rotate(180deg); }
+  .stat-more { display: none; padding: 0 1.1rem 1.2rem; }
+  .stat.is-open .stat-more { display: block; animation: panelIn 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+  .stats.has-open .stat:not(.is-open) { opacity: 1; }
+  .stats-hint { display: none; }
+}
+
 /* ---------- Section headings ---------- */
 .h2 {
   font-size: clamp(1.75rem, 3.2vw, 2.6rem);
@@ -1133,4 +1290,5 @@ body.switching [data-fr] { opacity: 0; }
   .js .stage-photo { filter: brightness(0.92) contrast(1.05); }
   .sp-table tr, .sp-need div, .sp-log span, .sp-card { opacity: 1; }
   .js .chips[data-reveal] li { opacity: 1; transform: none; }
+  .js .stats:not(.in) .plus { opacity: 1; transform: none; }
 }

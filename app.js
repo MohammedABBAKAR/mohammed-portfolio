@@ -479,4 +479,50 @@
     window.addEventListener('resize', measure);
     measure();
   })();
+
+  // ---------- Key numbers: count up once, open on hover / focus / tap ----------
+  (function setupStats() {
+    const box = document.querySelector('.stats');
+    if (!box) return;
+    const stats = Array.from(box.querySelectorAll('.stat'));
+    const canHover = window.matchMedia('(hover: hover) and (min-width: 861px)');
+
+    function open(stat) {
+      stats.forEach(s => {
+        const on = s === stat;
+        s.classList.toggle('is-open', on);
+        s.querySelector('.stat-top').setAttribute('aria-expanded', on ? 'true' : 'false');
+      });
+      box.classList.toggle('has-open', !!stat);
+    }
+    stats.forEach(s => {
+      const btn = s.querySelector('.stat-top');
+      s.addEventListener('mouseenter', () => { if (canHover.matches) open(s); });
+      s.addEventListener('focusin', () => { if (canHover.matches) open(s); });
+      btn.addEventListener('click', () => open(s.classList.contains('is-open') && !canHover.matches ? null : s));
+    });
+    box.addEventListener('mouseleave', () => { if (canHover.matches) open(null); });
+    box.addEventListener('focusout', e => { if (canHover.matches && !box.contains(e.relatedTarget)) open(null); });
+
+    // Count up when the strip first comes into view
+    const counts = Array.from(box.querySelectorAll('.count'));
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+    counts.forEach(c => { c.textContent = '0'; });
+    const io = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) return;
+      io.disconnect();
+      counts.forEach((c, i) => {
+        const to = +c.dataset.to;
+        const delay = i * 120, dur = 1100;
+        const start = performance.now() + delay;
+        const tick = now => {
+          const p = Math.min(1, Math.max(0, (now - start) / dur));
+          c.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    io.observe(box);
+  })();
 })();
